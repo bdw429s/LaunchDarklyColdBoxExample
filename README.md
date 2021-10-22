@@ -1,8 +1,12 @@
 # LaunchDarkly ColdBox Example
 
-This is an example repo of how to use LaunchDarkly CFML SDK with ColdBox.
+This is an example repo of how to use LaunchDarkly CFML SDK with ColdBox.  To try it out, clone the repo, grab CommandBox CLI and run 
+```bash
+box install
+box server start
+```
 
-By default, it will load static data from the file `/config/flag-data.json`.  If you have your own LD account, place your `SDKKey` in an `.env` file (assumes you are using `commandbox-dotenv` and change `atasource.type` in the `/config/Coldbox.cfc` to be "default" instead of "fileData" and the app will start looking for the flags in your account instaed of the JSON file.
+By default, LaunchDarklyl will load static data from the file `/config/flag-data.json`.  If you have your own LD account, place your `SDKKey` in an `.env` file (assumes you are using `commandbox-dotenv` and change `atasource.type` in the `/config/Coldbox.cfc` to be "default" instead of "fileData" and the app will start looking for the flags in your account instaed of the JSON file.
 
 ## Users
 
