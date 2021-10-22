@@ -11,6 +11,24 @@ The site has 3 users  you can test in using the links on the home page
 * Logged in as Brad (has special experimental features activated)
 * Logged in as Luis (has special welcome message)
 
+The `/handlers/Main.cfc` has a very simply login mechanism that sets session variables.  In the `/config/Coldbox.cfc` you can see this simple callback that tells LaunchDarkly who the logged in user is.
+
+```js
+userProvider : ()=>{
+	if( session.keyExists( 'user' ) ) {
+		return {
+			key : session.user.id,
+			name : session.user.name,
+			role : session.user.role,
+			email : session.user.email
+		};
+	} else {
+		// Anonymous
+		return {};
+	}
+}
+```
+
 ## Segments
 
 There is a single user segment in the JSON called `vip-users` which consists of all users with a `ROLE` of `admin`.  The Luis user is the only user with an admin role.
@@ -20,7 +38,7 @@ There is a single user segment in the JSON called `vip-users` which consists of 
 The following flags are defined in the JSON:
 
 ### `activate-cool`
-When enabled, this flag will change the default iamge on the home page.  Edit line 25 of the JSON from 
+When enabled, this boolean flag will change the default image on the home page.  Edit line 25 of `/config/flag-data.json` from 
 ```js
 "on": false,
 ```
@@ -32,7 +50,7 @@ and refresh the page to enable the flag.
 
 ### `welcome-message`
 
-This is a string flag which provides the welcome message displayed on the home page.  This flag is activated for the `vip-users` segment.  CLick the "Login as Luis" link to see the custom message only VIP users see.  
+This is a string flag which provides the welcome message displayed on the home page.  This flag serves a different variation for the `vip-users` segment.  CLick the "Login as Luis" link to see the custom message only VIP users see.  
 
 ### `experimental-features`
 
