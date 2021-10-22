@@ -4,14 +4,15 @@ component {
 
 		coldbox = {
 			appName : 'LaunchDarkly ColdBox Example App',
-			reinitPassword : ''
+			reinitPassword : '',
+			customErrorTemplate : '/coldbox/system/exceptions/Whoops.cfm'
 
 		};
 
 		moduleSettings = {
 			'LaunchDarklySDK' : {
-				SDKKey : getSystemSetting( 'SDKKey' ),
-				userProvider=()=>{
+				SDKKey : getSystemSetting( 'SDKKey', '' ),
+				userProvider : ()=>{
 					if( session.keyExists( 'user' ) ) {
 						return {
 							key : session.user.id,
@@ -23,7 +24,12 @@ component {
 						// Anonymous
 						return {};
 					}
-				}
+				},
+				datasource : {
+					type : 'fileData',
+					fileDataPaths : expandPath( '/config/flag-data.json' ),
+					fileDataAutoUpdate : true
+				} 
 			}
 		};
 

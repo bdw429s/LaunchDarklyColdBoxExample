@@ -1,0 +1,137 @@
+{
+    "segments": {
+        "vip-users": {
+            "key": "vip-users",
+            "included": [],
+            "excluded": [],
+            "salt": "c47f64534b5d4b1bb8c1bd16b77b2218",
+            "rules": [
+                {
+                    "id": "92c80621-52e4-45d5-96ff-2789bea436d6",
+                    "clauses": [
+                        {
+                            "attribute": "ROLE",
+                            "op": "in",
+                            "values": [
+                                "admin"
+                            ],
+                            "negate": false
+                        }
+                    ]
+                }
+            ],
+            "version": 2,
+            "generation": 1,
+            "deleted": false
+        }
+    },
+    "flags": {
+        "activate-cool": {
+            "key": "activate-cool",
+            "on": false,
+            "prerequisites": [],
+            "targets": [],
+            "rules": [],
+            "fallthrough": {
+                "variation": 0
+            },
+            "offVariation": 1,
+            "variations": [
+                true,
+                false
+            ],
+            "clientSideAvailability": {
+                "usingMobileKey": false,
+                "usingEnvironmentId": false
+            },
+            "clientSide": false,
+            "salt": "d71a2b061b2a4ffda6a2140f9ba92500",
+            "trackEvents": false,
+            "trackEventsFallthrough": false,
+            "debugEventsUntilDate": null,
+            "version": 18,
+            "deleted": false
+        },
+        "experimental-features": {
+            "key": "experimental-features",
+            "on": true,
+            "prerequisites": [],
+            "targets": [
+                {
+                    "variation": 0,
+                    "values": [
+                        "5"
+                    ]
+                }
+            ],
+            "rules": [],
+            "fallthrough": {
+                "variation": 1
+            },
+            "offVariation": 1,
+            "variations": [
+                {
+                    "site": "bleeding edge",
+                    "features": "enabled"
+                },
+                {
+                    "site": "stable",
+                    "features": "disabled"
+                }
+            ],
+            "clientSideAvailability": {
+                "usingMobileKey": false,
+                "usingEnvironmentId": false
+            },
+            "clientSide": false,
+            "salt": "da151852d7ba43949f105e227bd36345",
+            "trackEvents": false,
+            "trackEventsFallthrough": false,
+            "debugEventsUntilDate": null,
+            "version": 12,
+            "deleted": false
+        },
+        "welcome-message": {
+            "key": "welcome-message",
+            "on": true,
+            "prerequisites": [],
+            "targets": [],
+            "rules": [
+                {
+                    "variation": 1,
+                    "id": "f5e7b67a-206d-4939-aa2b-c6b635993e26",
+                    "clauses": [
+                        {
+                            "attribute": "segmentMatch",
+                            "op": "segmentMatch",
+                            "values": [
+                                "vip-users"
+                            ],
+                            "negate": false
+                        }
+                    ],
+                    "trackEvents": false
+                }
+            ],
+            "fallthrough": {
+                "variation": 0
+            },
+            "offVariation": 0,
+            "variations": [
+                "Welcome back, peasants",
+                "Hey Baby, looking great!"
+            ],
+            "clientSideAvailability": {
+                "usingMobileKey": false,
+                "usingEnvironmentId": false
+            },
+            "clientSide": false,
+            "salt": "e782d83e6ac14b29a7a1bfd453694b40",
+            "trackEvents": false,
+            "trackEventsFallthrough": false,
+            "debugEventsUntilDate": null,
+            "version": 5,
+            "deleted": false
+        }
+    }
+}

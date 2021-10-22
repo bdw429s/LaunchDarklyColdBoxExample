@@ -41,7 +41,9 @@
 
 
 <h2>Experimental Features</h2>
-<cfdump var="#getInstance( 'LD@LaunchDarklySDK' ).variation( 'experimental-features', {} )#">
+<cfset data = getInstance( 'LD@LaunchDarklySDK' ).variationDetail( 'experimental-features', {} )>
+<cfdump var="#data.value#">
+Variation #data.variationIndex# was chosen because: #data.reason.detail#
 
 
 </cfoutput>

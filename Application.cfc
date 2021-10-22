@@ -14,7 +14,7 @@ component {
 	this.javaSettings = {
 		loadPaths = directorylist( expandPath( '/modules/LaunchDarklySDK/lib' ), true, 'array', '*jar' ),
 		loadColdFusionClassPath = true,
-		reloadOnChange = false
+		reloadOnChange = true
 	};
 
 	// COLDBOX STATIC PROPERTY, DO NOT CHANGE UNLESS THIS IS NOT THE ROOT OF YOUR COLDBOX APP
