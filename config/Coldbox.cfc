@@ -26,6 +26,9 @@ component {
 					}
 				},
 				datasource : {
+					// Comment out the next three lines and provide an SDKKey env var to hook this 
+					// sample app up to your own LaunchDarkly account intead of the JSON data.
+					// You will need to re-create the same flags and variations for the app to work
 					type : 'fileData',
 					fileDataPaths : expandPath( '/config/flag-data.json' ),
 					fileDataAutoUpdate : true

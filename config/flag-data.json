@@ -86,6 +86,39 @@
                 "Welcome back, peasants",
                 "Hey Baby, looking great!"
             ]
+        },
+        "product-page": {
+            "key": "product-page",
+            "on": true,
+             "fallthrough": {
+                "rollout": {
+                    "variations": [
+                        {
+                            "variation": 0,
+                            "weight": 50000
+                        },
+                        {
+                            "variation": 1,
+                            "weight": 25000
+                        },
+                        {
+                            "variation": 2,
+                            "weight": 25000
+                        }
+                    ]
+                }
+            },
+            "offVariation": 0,
+            "variations": [
+                "index",
+                "beg",
+                "puppy"
+            ],
+            "trackEvents": true,
+            "trackEventsFallthrough": false,
+            "debugEventsUntilDate": null,
+            "version": 9,
+            "deleted": false
         }
     }
 }

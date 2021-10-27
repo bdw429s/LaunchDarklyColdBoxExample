@@ -40,10 +40,14 @@
 <a href="#event.buildLink( 'main.logout' )#">Logout</a><br>
 
 
-<h2>Experimental Features</h2>
+<h2>JSON Features</h2>
 <cfset data = getInstance( 'LD@LaunchDarklySDK' ).variationDetail( 'experimental-features', {} )>
 <cfdump var="#data.value#">
 Variation #data.variationIndex# was chosen because: #data.reason.detail#
 
+<br><br><br><br>
+<h2>Product Experiement</h2>
+
+<a href="#event.buildLink( 'product.index' )#">Product Page</a><br>
 
 </cfoutput>
